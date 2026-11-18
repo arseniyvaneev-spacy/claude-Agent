@@ -18,7 +18,7 @@ Auf Augenhöhe erklären: verständlich, aber nicht oberflächlich. Fachbegriffe
    ```
 3. **Ablauf an einem Beispiel**: Einen konkreten Durchlauf verfolgen („Wenn ein Nutzer /start schickt, passiert …“).
 4. **Kernmechanismen**: Die 2–3 nicht offensichtlichen Stellen genauer erklären (Algorithmus, Muster, Bibliotheksmagie). Hier lohnt sich Tiefe.
-5. **Auffälligkeiten**: Bugs, Risiken, seltsame Stellen ehrlich benennen – kurz.
+5. **Auffälligkeiten**: Bugs, Risiken, seltsame Stellen ehrlich benennen – kurz. Wo möglich mit einem kleinen Test belegen (in einer Wegwerfkopie, nie im echten Projekt), statt nur zu vermuten; was nicht getestet wurde, als Vermutung kennzeichnen.
 6. **Zum Ausprobieren** (optional): Ein kleines Experiment, mit dem man das Verständnis prüfen kann („Ändere X auf Y und beobachte Z“).
 
 ## Bei Fehlermeldungen
