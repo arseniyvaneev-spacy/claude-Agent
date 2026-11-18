@@ -29,6 +29,7 @@ Skills sind Anleitungen, die Claude bei passender Aufgabe in den laufenden Konte
 | [`python-projekt-setup`](.claude/skills/python-projekt-setup/SKILL.md) | Neues Python-Projekt mit src-Layout, pyproject, .env, pytest, ruff |
 | [`agent-anlegen`](.claude/skills/agent-anlegen/SKILL.md) | Neue Agents/Skills nach den Konventionen dieses Repos anlegen |
 | [`code-erklaeren`](.claude/skills/code-erklaeren/SKILL.md) | Code und Fehlermeldungen verständlich erklären |
+| [`pr-beschreibung`](.claude/skills/pr-beschreibung/SKILL.md) | PR-Beschreibung aus Commits und Diff eines Branches schreiben |
 
 ## Installation
 
