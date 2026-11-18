@@ -9,4 +9,4 @@ Versionierte Kopie der Konfiguration von zwei ElevenLabs-Agenten. Die maßgeblic
 
 - `config.json`: Name, Stimme, LLM, erste Nachricht, Prompt
 - `prompt.md`: der System-Prompt zum Lesen
-- `snow-ai/charakter-profil.md`: ausführliches Charakterprofil von Snow AI (noch nicht im Live-Prompt)
+- `snow-ai/charakter-profil.md`: ausführliches Charakterprofil von Snow AI (Grundlage des Live-Prompts, für Sprache angepasst, ohne Slack/Gmail-Ausnahmen)
