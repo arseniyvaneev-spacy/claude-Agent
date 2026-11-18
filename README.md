@@ -17,7 +17,7 @@ Subagenten arbeiten in einem eigenen Kontext mit eigenen Tools und liefern ein E
 | [`architect`](.claude/agents/architect.md) | Features und Projekte planen, Optionen vergleichen – ändert keinen Code | lesen + Web |
 | [`doc-writer`](.claude/agents/doc-writer.md) | README, Docstrings, Anleitungen auf Deutsch | lesen, schreiben |
 | [`snow-ai`](.claude/agents/snow-ai.md) | Persönlicher Recherche- und Alltagsassistent: begrenzte Recherche mit Belegen, Belegprüfung, Entscheidungshilfe | Web + lesen (bewusst ohne Schreibrechte) |
-| [`agent-teacher`](.claude/agents/agent-teacher.md) | Lehrt Agenten, Prompts und Skills in Schritten mit Beispiel und Übungsaufgabe, prüft Fakten in der Doku | Web + lesen + schreiben + GitHub |
+| [`agent-teacher`](.claude/agents/agent-teacher.md) | Lehrt Agenten, Prompts und Skills in Schritten mit Beispiel und Übungsaufgabe, prüft Fakten in der Doku | Web + lesen + schreiben (ohne Shell und GitHub) |
 
 ### Skills (`.claude/skills/`)
 
