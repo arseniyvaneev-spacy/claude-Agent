@@ -84,7 +84,7 @@ Claude wählt Agents und Skills **automatisch** anhand ihrer `description`. Du k
 │   ├── agents/          # ein Subagent pro .md-Datei
 │   ├── skills/          # ein Ordner pro Skill mit SKILL.md
 │   ├── hooks/           # Hook-Skripte (validate-nach-aenderung.sh)
-│   └── settings.json    # Projekt-Hooks: prüft Agents/Skills nach jeder Änderung
+│   └── settings.json    # Projekt-Hooks (prüft Agents/Skills) + Leseverbot für Secrets
 ├── scripts/
 │   ├── install.sh       # installiert nach ~/.claude
 │   └── validate.sh      # prüft Frontmatter aller Agents/Skills
