@@ -8,8 +8,9 @@ description: Erstellt saubere Git-Commits nach Conventional Commits mit aussagek
 ## Schritte
 
 1. **Überblick**: `git status` und `git diff` (bzw. `git diff --staged`) lesen.
-2. **Prüfen, bevor committet wird**:
-   - Keine Secrets (`.env`, API-Keys, Tokens, Passwörter) im Diff? → Sonst abbrechen und warnen.
+   - Neue, unversionierte Dateien (`??` in `git status`) zeigt `git diff` nicht an: ihren Inhalt zusätzlich lesen. Gerade dort landen Secrets am häufigsten.
+2. **Prüfen, bevor committet wird** – in allen Änderungen, auch in neuen Dateien:
+   - Keine Secrets (`.env`, API-Keys, Tokens, Passwörter)? → Sonst die betroffenen Dateien nicht committen und warnen. Saubere, thematisch getrennte Änderungen dürfen nach Rückfrage einzeln committet werden.
    - Keine Debug-Reste (`print("DEBUG")`, `console.log`, auskommentierter Code)?
    - Gehören die Änderungen thematisch zusammen? Wenn nicht: in mehrere Commits aufteilen und gezielt mit `git add <datei>` stagen.
 3. **Nachricht schreiben** (Format unten).
