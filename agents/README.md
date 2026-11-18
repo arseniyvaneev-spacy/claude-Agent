@@ -1,12 +1,19 @@
-# ElevenLabs-Agenten
+# Agenten
 
-Versionierte Kopie der Konfiguration von zwei ElevenLabs-Agenten. Die maßgebliche Version liegt in ElevenLabs; diese Dateien sind der Stand vom 18.11.2026.
+Agent Teacher und Snow AI leben in diesem Repository als **Claude-Code-Agenten**:
 
-| Agent | Ordner | Agent-ID |
+| Agent | Datei | Werkzeuge |
 |---|---|---|
-| Agent Teacher | `agent-teacher/` | `agent_9101m7b39qj3fy6bbfcc40b17m2a` |
-| Snow AI | `snow-ai/` | `agent_9901m7b39htse6kbmswfmy8cgz6c` |
+| Agent Teacher | `.claude/agents/agent-teacher.md` | Read, Grep, Glob, WebSearch, WebFetch |
+| Snow AI | `.claude/agents/snow-ai.md` | Read, Grep, Glob, WebSearch, WebFetch |
 
-- `config.json`: Name, Stimme, LLM, erste Nachricht, Prompt
-- `prompt.md`: der System-Prompt zum Lesen
-- `snow-ai/charakter-profil.md`: ausführliches Charakterprofil von Snow AI (Grundlage des Live-Prompts, für Sprache angepasst, ohne Slack/Gmail-Ausnahmen)
+Beide sind nur lesend: Sie haben kein Schreib-, Shell- oder GitHub-Schreibwerkzeug. Das ist technisch erzwungen, nicht nur eine Prompt-Regel.
+
+## Benutzen
+In jeder Claude-Code-Session mit diesem Repo (Terminal, Web, App), z. B.:
+- „Lass Snow AI recherchieren, ob …“
+- „Agent Teacher, erklär mir Subagents.“
+- oder `@agent-snow-ai` / `@agent-agent-teacher` erwähnen.
+
+## Archiv
+`agent-teacher/` und `snow-ai/` enthalten die frühere ElevenLabs-Konfiguration (Sprachagenten) und `snow-ai/charakter-profil.md`, die Vorlage für Snow AI.
