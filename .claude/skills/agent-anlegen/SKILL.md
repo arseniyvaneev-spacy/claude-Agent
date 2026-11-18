@@ -63,6 +63,7 @@ Zusätzliche Dateien (Vorlagen, Skripte, Referenzen) kommen in denselben Skill-O
 
 ## Nach dem Anlegen
 
-1. `./scripts/validate.sh` ausführen.
-2. Eintrag in der Tabelle im `README.md` ergänzen.
-3. Mit dem Skill `git-commit` committen (`feat(agents): …` bzw. `feat(skills): …`).
+1. `./scripts/validate.sh` ausführen. Das prüft nur das Format, nicht ob es funktioniert.
+2. **Probelauf**: Den neuen Agenten bzw. Skill einmal mit einer typischen Aufgabe aufrufen (Agent über das Agent-Tool, Skill über das Skill-Tool; in einer Wegwerfkopie, falls er etwas ändern darf). Prüfen: Hält er Ausgabeformat und Grenzen ein? Nutzt er nur die erlaubten Tools? Auffälligkeiten beheben und den Lauf wiederholen. Lässt sich der Probelauf nicht durchführen (z. B. weil neue Agents erst nach einem Neustart geladen werden), das ausdrücklich sagen statt ihn zu überspringen.
+3. Eintrag in der Tabelle im `README.md` ergänzen.
+4. Mit dem Skill `git-commit` committen (`feat(agents): …` bzw. `feat(skills): …`).
