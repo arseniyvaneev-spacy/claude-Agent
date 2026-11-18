@@ -28,6 +28,26 @@ field() {
   grep -E "^$1:" <<<"$2" | head -1 | sed -E "s/^$1:[[:space:]]*//; s/[[:space:]]+#.*$//"
 }
 
+list_field() {
+  # Werte eines Listenfelds, kommagetrennt ausgegeben. Versteht alle drei Schreibweisen:
+  #   key: A, B          key: [A, B]          key:
+  #                                             - A
+  #                                             - B
+  local inline
+  inline="$(field "$1" "$2")"
+  if [[ -n "$inline" ]]; then
+    inline="${inline#[}"; inline="${inline%]}"
+    echo "$inline"
+    return
+  fi
+  awk -v key="$1" '
+    $0 ~ "^"key":" {inlist=1; next}
+    inlist && /^[[:space:]]*-/ {sub(/^[[:space:]]*-[[:space:]]*/, ""); sub(/[[:space:]]+#.*$/, ""); out = out (out ? "," : "") $0; next}
+    inlist && /^[^[:space:]]/ {inlist=0}
+    END {print out}
+  ' <<<"$2"
+}
+
 check_file() {
   local file="$1" expected="$2" kind="$3"
   local fm name desc
@@ -50,7 +70,7 @@ check_file() {
 
   if [[ "$kind" == "agent" ]]; then
     local tools
-    tools="$(field tools "$fm")"
+    tools="$(list_field tools "$fm")"
     if [[ -n "$tools" ]]; then
       IFS=',' read -ra list <<<"$tools"
       for t in "${list[@]}"; do
@@ -70,6 +90,7 @@ done
 
 echo "Skills:"
 for d in .claude/skills/*/; do
+  [[ -d "$d" ]] || continue
   d="${d%/}"
   if [[ ! -f "$d/SKILL.md" ]]; then
     err "$d" "SKILL.md fehlt"
