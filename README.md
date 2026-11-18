@@ -69,7 +69,7 @@ Claude wählt Agents und Skills **automatisch** anhand ihrer `description`. Du k
 
 1. In Claude Code sagen: *„Leg einen neuen Agenten für … an“* – der Skill `agent-anlegen` kennt die Vorlagen.
    Oder manuell nach der Vorlage in [`agent-anlegen/SKILL.md`](.claude/skills/agent-anlegen/SKILL.md).
-2. Prüfen:
+2. Prüfen (läuft in Claude Code nach jeder Änderung an Agents/Skills automatisch per Hook):
    ```bash
    ./scripts/validate.sh
    ```
@@ -81,7 +81,9 @@ Claude wählt Agents und Skills **automatisch** anhand ihrer `description`. Du k
 .
 ├── .claude/
 │   ├── agents/          # ein Subagent pro .md-Datei
-│   └── skills/          # ein Ordner pro Skill mit SKILL.md
+│   ├── skills/          # ein Ordner pro Skill mit SKILL.md
+│   ├── hooks/           # Hook-Skripte (validate-nach-aenderung.sh)
+│   └── settings.json    # Projekt-Hooks: prüft Agents/Skills nach jeder Änderung
 ├── scripts/
 │   ├── install.sh       # installiert nach ~/.claude
 │   └── validate.sh      # prüft Frontmatter aller Agents/Skills
