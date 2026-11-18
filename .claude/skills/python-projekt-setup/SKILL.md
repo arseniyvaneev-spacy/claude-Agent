@@ -36,15 +36,24 @@ projektname/
 [project]
 name = "projektname"
 version = "0.1.0"
-requires-python = ">=3.11"
+requires-python = ">=3.13"   # Hauptversion aus Schritt 1 eintragen
 dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]
 
+# Nur bei CLI-Tools und Bots: eigener Befehl statt nur `python -m paketname`
+[project.scripts]
+projektname = "paketname.__main__:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+# Pflicht, sobald der Paketordner nicht genau dem Projektnamen in snake_case
+# entspricht – sonst bricht die Installation ab. Schadet auch sonst nicht.
+[tool.hatch.build.targets.wheel]
+packages = ["src/paketname"]
 
 [tool.ruff]
 line-length = 100
@@ -58,7 +67,8 @@ testpaths = ["tests"]
 
 ## 4. Konfiguration & Secrets
 
-- Secrets **nur** über Umgebungsvariablen bzw. `.env` (mit `python-dotenv`), nie im Code.
+- Secrets **nur** über Umgebungsvariablen bzw. `.env`, nie im Code.
+- `python-dotenv` nur als Abhängigkeit aufnehmen, wenn das Projekt eine `.env` tatsächlich lädt. Braucht es keine Secrets, reichen `os.environ` und eine `.env.example` mit den optionalen Variablen.
 - `.env` steht in `.gitignore`, `.env.example` wird committet.
 - `config.py` liest Variablen zentral und bricht mit klarer Fehlermeldung ab, wenn Pflichtwerte fehlen.
 
