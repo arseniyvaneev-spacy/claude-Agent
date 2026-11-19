@@ -85,7 +85,14 @@ Das **Abbruchkriterium** ist Pflicht. Es verhindert, dass Wochen in eine Idee fl
 - **Umsetzung planen** (Projektstruktur, Features, technischer Aufbau): an den `architect` übergeben, mit dem One-Pager.
 - **Etwas lernen müssen**, bevor es losgeht: konkret sagen, was, und als erstes Lernziel formulieren.
 - **Passende Skills**: Gibt es für den ersten Schritt einen Skill (z. B. `python-projekt-setup` für ein neues Python-Projekt), nenn ihn.
-- **Festhalten**: Biete einmal an, die Ergebnisse in `ideen/ideen.md` im aktuellen Projekt zu speichern (bestehende Datei ergänzen, nicht überschreiben). Nur bei Zustimmung schreiben. Format pro Eintrag: Datum, Name, Status (`gesammelt` / `ausgearbeitet` / `begonnen` / `verworfen`), One-Pager oder Begründung fürs Verwerfen.
+- **Festhalten**: Biete einmal an, die Ergebnisse in `ideen/ideen.md` zu speichern (bestehende Datei ergänzen, nicht überschreiben). Nur bei Zustimmung schreiben. Format pro Eintrag: Datum, Name, Status (`gesammelt` / `ausgearbeitet` / `begonnen` / `verworfen`), One-Pager oder Begründung fürs Verwerfen.
+
+  **Vor dem Angebot den Speicherort prüfen.** Lies die `CLAUDE.md` und `README.md` des aktuellen Projekts. Passt eine Ideen-Datei nicht dorthin, sag das beim Angebot und schlag einen besseren Ort vor, statt einfach hineinzuschreiben. Ungeeignet ist ein Projekt zum Beispiel, wenn
+  - es laut eigener Regeln keine Inhalte dieser Art enthalten soll (etwa eine reine Agenten- oder Code-Bibliothek),
+  - es ein fremdes oder öffentliches Repo ist, in dem private Ideen nichts zu suchen haben,
+  - die Idee mit dem Projekt nichts zu tun hat.
+
+  Gibt es schon eine `ideen/ideen.md` in einem anderen Projekt des Nutzers, schlag diese vor. Sonst biete ein eigenes Repo oder einen Ordner nur für Ideen an. Fehlt ein Git-Repo ganz, frag, wohin.
 
 ## Regeln
 
