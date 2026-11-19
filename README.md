@@ -13,7 +13,9 @@ Subagenten arbeiten in einem eigenen Kontext mit eigenen Tools und liefern ein E
 | [`code-reviewer`](.claude/agents/code-reviewer.md) | Kritisches Review nach Code-Änderungen, sortiert nach Schwere | nur lesen + Bash |
 | [`debugger`](.claude/agents/debugger.md) | Ursache von Fehlern finden, reproduzieren, minimal beheben | lesen, editieren, Bash |
 | [`test-writer`](.claude/agents/test-writer.md) | Aussagekräftige Tests schreiben und ausführen | lesen, schreiben, Bash |
-| [`researcher`](.claude/agents/researcher.md) | Web-Recherche mit Quellenbewertung und Belegen | Web + lesen |
+| [`researcher`](.claude/agents/researcher.md) | Web-Recherche mit Quellenbewertung, Belegen und Evidenzstufen (Gesichert / Gut belegt / Hypothese / Spekulation) – für Technik ebenso wie für Wissenschaft | Web + lesen |
+| [`bericht-pruefer`](.claude/agents/bericht-pruefer.md) | Prüft einen Bericht des `researcher` gegen dessen Regeln (Aufbau, Evidenzstufen, Quellen, Ton) – ohne Webzugriff, also Konsistenz, nicht Wahrheit | nur lesen |
+| [`github-maintainer`](.claude/agents/github-maintainer.md) | Branch, Commit, Push, Pull Request als Entwurf, Issue-Kommentare – merged nie; Pushes nur auf ein Branch-Präfix, abgesichert durch den Hook `push-waechter` | lesen, schreiben, Bash, GitHub |
 | [`architect`](.claude/agents/architect.md) | Features und Projekte planen, Optionen vergleichen – ändert keinen Code | lesen + Web |
 | [`doc-writer`](.claude/agents/doc-writer.md) | README, Docstrings, Anleitungen auf Deutsch | lesen, schreiben |
 | [`snow-ai`](.claude/agents/snow-ai.md) | Persönlicher Recherche- und Alltagsassistent: begrenzte Recherche mit Belegen, Belegprüfung, Entscheidungshilfe | Web + lesen (bewusst ohne Schreibrechte) |
@@ -41,7 +43,9 @@ cd claude-Agent
 ./scripts/install.sh
 ```
 
-Das legt Symlinks in `~/.claude/agents/` und `~/.claude/skills/` an. Ein `git pull` aktualisiert damit automatisch alle Projekte.
+Das legt Symlinks in `~/.claude/agents/`, `~/.claude/skills/` und `~/.claude/hooks/` an. Ein `git pull` aktualisiert damit automatisch alle Projekte.
+
+Die Hooks braucht der `github-maintainer`: Ohne installierten `push-waechter` sperrt er alle Pushes, statt ungeschützt zu pushen. Erlaubt sind standardmäßig nur Branches unter `claude/`; ein anderes Präfix setzt du über die Umgebungsvariable `PUSH_WAECHTER_PREFIX` (z. B. `feature/`, muss mit `/` enden). Der Wächter fängt Versehen ab, ist aber keine Sicherheitsgrenze – die harte Grenze ist ein Ruleset auf dem Default-Branch in GitHub.
 
 | Option | Wirkung |
 |---|---|
@@ -83,7 +87,7 @@ Claude wählt Agents und Skills **automatisch** anhand ihrer `description`. Du k
 ├── .claude/
 │   ├── agents/          # ein Subagent pro .md-Datei
 │   ├── skills/          # ein Ordner pro Skill mit SKILL.md
-│   ├── hooks/           # Hook-Skripte (validate-nach-aenderung.sh)
+│   ├── hooks/           # Hook-Skripte (validate-nach-aenderung.sh, push-waechter.* mit Tests)
 │   └── settings.json    # Projekt-Hooks (prüft Agents/Skills) + Leseverbot für Secrets
 ├── scripts/
 │   ├── install.sh       # installiert nach ~/.claude
