@@ -1,0 +1,31 @@
+name: "Agents und Hooks prüfen"
+
+# Läuft bei jedem Pull Request und prüft:
+#   1. das Frontmatter aller Agents und Skills (scripts/validate.sh)
+#   2. den Push-Wächter des github-maintainer (Testmatrix)
+# Ruft Claude nicht auf und braucht nur Leserechte.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Werkzeuge prüfen
+        run: |
+          python3 --version
+          jq --version
+
+      - name: Agents und Skills validieren
+        run: ./scripts/validate.sh
+
+      - name: Push-Wächter testen
+        run: .claude/hooks/push-waechter.test.sh

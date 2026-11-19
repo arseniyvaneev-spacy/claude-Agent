@@ -74,9 +74,10 @@ Claude wählt Agents und Skills **automatisch** anhand ihrer `description`. Du k
 
 1. In Claude Code sagen: *„Leg einen neuen Agenten für … an“* – der Skill `agent-anlegen` kennt die Vorlagen.
    Oder manuell nach der Vorlage in [`agent-anlegen/SKILL.md`](.claude/skills/agent-anlegen/SKILL.md).
-2. Prüfen (läuft in Claude Code nach jeder Änderung an Agents/Skills automatisch per Hook):
+2. Prüfen (läuft in Claude Code nach jeder Änderung an Agents/Skills automatisch per Hook, und bei jedem Pull Request in GitHub Actions):
    ```bash
    ./scripts/validate.sh
+   .claude/hooks/push-waechter.test.sh   # nur nötig, wenn der Push-Wächter geändert wurde
    ```
 3. Tabelle oben ergänzen, committen.
 
@@ -89,6 +90,8 @@ Claude wählt Agents und Skills **automatisch** anhand ihrer `description`. Du k
 │   ├── skills/          # ein Ordner pro Skill mit SKILL.md
 │   ├── hooks/           # Hook-Skripte (validate-nach-aenderung.sh, push-waechter.* mit Tests)
 │   └── settings.json    # Projekt-Hooks (prüft Agents/Skills) + Leseverbot für Secrets
+├── .github/workflows/
+│   └── pruefen.yml      # bei jedem PR: validate.sh + Tests des Push-Wächters
 ├── scripts/
 │   ├── install.sh       # installiert nach ~/.claude
 │   └── validate.sh      # prüft Frontmatter aller Agents/Skills
