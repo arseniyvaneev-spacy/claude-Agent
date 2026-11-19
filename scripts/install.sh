@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Installiert die Agents und Skills aus diesem Repo global nach ~/.claude,
-# damit sie in jedem Projekt in Claude Code verfügbar sind.
+# Installiert die Agents, Skills und die von Agents benötigten Hooks aus diesem
+# Repo global nach ~/.claude, damit sie in jedem Projekt in Claude Code verfügbar sind.
 #
 # Nutzung:
 #   ./scripts/install.sh          # Symlinks (Updates per git pull wirken sofort)
@@ -26,7 +26,12 @@ for arg in "$@"; do
   esac
 done
 
-mkdir -p "$DEST/agents" "$DEST/skills"
+mkdir -p "$DEST/agents" "$DEST/skills" "$DEST/hooks"
+
+# Hooks, auf die Agents aus diesem Repo verweisen. Sie müssen global liegen,
+# sonst fehlen sie in jedem anderen Projekt (der github-maintainer sperrt dann
+# alle Pushes, statt ungeschützt zu pushen).
+GLOBAL_HOOKS="push-waechter.sh push-waechter.py"
 
 installed=0
 skipped=0
@@ -66,6 +71,12 @@ for d in "$SRC"/skills/*/; do
   [[ -f "$d/SKILL.md" ]] || continue
   d="${d%/}"
   install_item "$d" "$DEST/skills/$(basename "$d")"
+done
+
+echo "Hooks → $DEST/hooks"
+for h in $GLOBAL_HOOKS; do
+  [[ -f "$SRC/hooks/$h" ]] || { echo "  fehlt im Repo: $h" >&2; continue; }
+  install_item "$SRC/hooks/$h" "$DEST/hooks/$h"
 done
 
 echo
