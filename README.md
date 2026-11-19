@@ -32,6 +32,7 @@ Skills sind Anleitungen, die Claude bei passender Aufgabe in den laufenden Konte
 | [`agent-anlegen`](.claude/skills/agent-anlegen/SKILL.md) | Neue Agents/Skills nach den Konventionen dieses Repos anlegen |
 | [`code-erklaeren`](.claude/skills/code-erklaeren/SKILL.md) | Code und Fehlermeldungen verständlich erklären |
 | [`pr-beschreibung`](.claude/skills/pr-beschreibung/SKILL.md) | PR-Beschreibung aus Commits und Diff eines Branches schreiben |
+| [`ideen-werkstatt`](.claude/skills/ideen-werkstatt/SKILL.md) | Ideen im Dialog entwickeln: breit sammeln, kritisch bewerten (mit größter Schwäche je Idee), die beste zum One-Pager mit erstem 30-Minuten-Schritt und Abbruchkriterium ausarbeiten; übergibt an `researcher` und `architect` |
 
 ## Installation
 
