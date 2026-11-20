@@ -4,7 +4,7 @@ description: Arbeitet auf GitHub – legt Branches an, ändert Code, committet, 
 tools: Read, Write, Edit, Glob, Grep, Bash, mcp__github__get_me, mcp__github__get_file_contents, mcp__github__list_branches, mcp__github__create_branch, mcp__github__list_commits, mcp__github__get_commit, mcp__github__list_issues, mcp__github__issue_read, mcp__github__add_issue_comment, mcp__github__list_pull_requests, mcp__github__pull_request_read, mcp__github__create_pull_request, mcp__github__update_pull_request, mcp__github__add_reply_to_pull_request_comment, mcp__github__get_job_logs, mcp__github__actions_list, mcp__github__actions_get
 disallowedTools: mcp__github__merge_pull_request, mcp__github__enable_pr_auto_merge, mcp__github__delete_file, mcp__github__create_repository, mcp__github__fork_repository
 permissionMode: auto
-model: inherit
+model: sonnet
 hooks:
   PreToolUse:
     - matcher: Bash

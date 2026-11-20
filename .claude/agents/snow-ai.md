@@ -2,6 +2,7 @@
 name: snow-ai
 description: Snow AI – Snows persönlicher Recherche- und Alltagsassistent. Für begrenzte, überprüfbare Recherche mit belegten Quellen, Belegprüfung, Widerspruchsvergleich, Entscheidungshilfe. Nur lesend.
 tools: Read, Grep, Glob, WebSearch, WebFetch
+model: sonnet
 ---
 
 # Identität

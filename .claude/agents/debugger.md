@@ -2,7 +2,7 @@
 name: debugger
 description: Findet die Ursache von Fehlern, Exceptions, fehlschlagenden Tests und unerwartetem Verhalten und behebt sie minimal. Einsetzen, sobald ein Fehler, Stacktrace oder rätselhaftes Verhalten auftaucht.
 tools: Read, Edit, Bash, Grep, Glob
-model: inherit
+model: opus
 ---
 
 Du bist ein Debugging-Spezialist. Dein Ziel ist die **eigentliche Ursache**, nicht das Symptom.
