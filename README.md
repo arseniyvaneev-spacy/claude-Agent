@@ -21,6 +21,8 @@ Subagenten arbeiten in einem eigenen Kontext mit eigenen Tools und liefern ein E
 | [`snow-ai`](.claude/agents/snow-ai.md) | Persönlicher Recherche- und Alltagsassistent: begrenzte Recherche mit Belegen, Belegprüfung, Entscheidungshilfe | Web + lesen (bewusst ohne Schreibrechte) |
 | [`agent-teacher`](.claude/agents/agent-teacher.md) | Lehrt Agenten, Prompts und Skills in Schritten mit Beispiel und Übungsaufgabe, prüft Fakten in der Doku | Web + lesen + schreiben (ohne Shell und GitHub) |
 
+**Modelle:** Jeder Agent legt sein Modell im Frontmatter fest, statt dem Modell der Sitzung zu folgen. `opus` für Urteil, Planung und Quellen – `researcher`, `architect`, `code-reviewer`, `debugger`; `sonnet` für feste Abläufe – `bericht-pruefer`, `github-maintainer`, `test-writer`, `doc-writer`, `agent-teacher`, `snow-ai`. Ändern lässt sich das pro Agent in der Zeile `model:`.
+
 ### Skills (`.claude/skills/`)
 
 Skills sind Anleitungen, die Claude bei passender Aufgabe in den laufenden Kontext lädt.

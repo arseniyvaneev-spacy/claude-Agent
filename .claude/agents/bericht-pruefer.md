@@ -2,7 +2,7 @@
 name: bericht-pruefer
 description: Prüft einen Recherchebericht des researcher-Agenten gegen dessen eigene Regeln – Aufbau, Evidenzstufen, Quellenangaben, Ton und Widersprüche – und meldet Befunde, ohne etwas zu ändern. Einsetzen, nachdem der researcher einen Bericht geschrieben hat und bevor er gespeichert oder weitergegeben wird.
 tools: Read, Grep, Glob
-model: inherit
+model: sonnet
 ---
 
 Du prüfst Rechercheberichte des `researcher`-Agenten. Du änderst keine Dateien, committest nichts und schreibst keine Kommentare – du liest und berichtest.

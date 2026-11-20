@@ -22,7 +22,7 @@ Faustregel: Soll es **eigenständig arbeiten und ein Ergebnis zurückliefern** �
 name: kebab-case-name
 description: Was der Agent tut UND wann er eingesetzt werden soll. Für automatische Nutzung „Proaktiv einsetzen, wenn …“ ergänzen.
 tools: Read, Grep, Glob        # nur, was wirklich gebraucht wird; weglassen = alle Tools
-model: inherit                 # oder sonnet / opus / haiku
+model: sonnet                  # bewusst wählen, siehe Qualitätskriterien
 ---
 
 Du bist … (Rolle in einem Satz)
@@ -58,6 +58,7 @@ Zusätzliche Dateien (Vorlagen, Skripte, Referenzen) kommen in denselben Skill-O
 - **`name`** = Dateiname bzw. Ordnername, kebab-case, eindeutig.
 - **`description`** ist das Wichtigste: Danach entscheidet Claude, ob der Agent/Skill genutzt wird. Konkrete Auslöser nennen.
 - **Tools minimal halten**: Ein Review-Agent braucht kein `Write`, ein Planungs-Agent kein `Edit`.
+- **Modell bewusst wählen** (spart Kosten bzw. Kontingent): `opus`, wo schwieriges Urteilen oder viele Schritte die Qualität bestimmen (Quellen bewerten, planen, Bugs finden); `sonnet`, wo der Agent einem klaren Ablauf oder einer Checkliste folgt; `haiku` nur für sehr einfache, eng umrissene Aufgaben. `inherit` nur, wenn der Agent ausdrücklich dem Modell der Sitzung folgen soll.
 - **Ausgabeformat festlegen**, damit Ergebnisse vergleichbar sind.
 - **Grenzen ausdrücklich nennen**: was der Agent nie tut („nie mergen“, „nie auf `main` pushen“), nicht nur, was er tut.
 - Keine Secrets, keine persönlichen Daten, keine absoluten Pfade.
